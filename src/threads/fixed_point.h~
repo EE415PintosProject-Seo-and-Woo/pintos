@@ -1,0 +1,49 @@
+#include<stdint.h>
+
+#define F_CONST (1<<14)
+
+int i_to_f(int n){
+  return n*F_CONST;
+}
+/*
+int f_to_i(int f){
+  if(f>>31 == 0)
+    return (f+F_CONST/2)/F_CONST;
+  return (f-F_CONST/2)/F_CONST;
+}
+*/
+int f_to_i(int f){
+  return f/F_CONST;
+}
+
+int add_f_f(int x, int y){
+  return x+y;
+}
+
+int sub_f_f(int x, int y){
+  return x-y;
+}
+
+int add_f_i(int x, int n){
+  return x+n*F_CONST;
+}
+
+int sub_f_i(int x, int n){
+  return x-n*F_CONST;
+}
+
+int mul_f_f(int x, int y){
+  return (int)(((int64_t)x)*y/F_CONST);
+}
+
+int mul_f_i(int x, int n){
+  return x*n;
+}
+
+int div_f_f(int x, int y){
+  return (int)(((int64_t)x)*F_CONST/y);
+}
+
+int div_f_i(int x, int n){
+  return x/n;
+}
